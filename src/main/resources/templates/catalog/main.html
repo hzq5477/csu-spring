@@ -3,13 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" href="../css/jpetstore.css" type="text/css" media="screen">
+    <link rel="StyleSheet" href="../css/jpetstore.css" type="text/css" media="screen"/>
 </head>
 <body>
-
-<div th:replace="common/top">
-</div>
-
+    <header th:replace="common/top"></header>
     <div id="Content">
         <div id="Welcome">
             <div id="WelcomeContent">
@@ -48,13 +45,9 @@
             </div>
 
             <div id="Separator">&nbsp;</div>
+        </div>
 
-
-
-</div>
-
-<div th:replace="common/bottom" >
-
-</div>
+    </div>
+    <footer th:replace="common/bottom"></footer>
 </body>
 </html>
