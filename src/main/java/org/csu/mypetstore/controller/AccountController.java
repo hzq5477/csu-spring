@@ -15,6 +15,7 @@ import java.util.List;
 
 @Controller
 @RequestMapping("/account/")
+//把account等放进session里让orderController能取到
 @SessionAttributes({"account", "myList", "authenticated"})
 public class AccountController {
 

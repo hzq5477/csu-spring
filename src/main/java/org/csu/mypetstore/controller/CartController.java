@@ -16,6 +16,9 @@ import java.util.Iterator;
 @Controller
 @SessionScope
 @RequestMapping("/cart/")
+//把cart放进session里让orderController能取到
+@SessionAttributes({"cart"})
+
 public class CartController {
 
     @Autowired
