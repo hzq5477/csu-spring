@@ -15,6 +15,7 @@ import org.springframework.web.context.annotation.SessionScope;
 
 
 import javax.servlet.http.HttpSession;
+import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -28,7 +29,6 @@ public class OrderController {
 
     @Autowired
     private OrderService orderService;
-
 
     private Order order = new Order();
     private boolean shippingAddressRequired;
