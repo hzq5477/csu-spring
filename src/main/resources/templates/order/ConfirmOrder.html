@@ -17,13 +17,13 @@
 
     <div id="Catalog">
         Please confirm the information below and then press continue...
-        <form action="/order/newOrder" method="post" >
+        <form action="/order/confirmOrder" method="post" >
             <table >
                 <tr>
                     <th align="center" colspan="2"><font size="4"><b>Order</b></font>
                         <br />
-                        <b th:text="${#dates.format(order.orderDate,'yyyy-MM-dd HH:mm:ss')}">
-                            <!--                        <fmt:formatDate value="${sessionScope.order.orderDate}" pattern="yyyy/MM/dd hh:mm:ss" />-->
+                    <!--    <b th:text="${dates.format(order.orderDate,'yyyy-MM-dd HH:mm:ss')}">-->
+
                         </b>
                     </th>
                 </tr>

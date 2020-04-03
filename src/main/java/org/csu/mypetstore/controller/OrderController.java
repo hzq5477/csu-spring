@@ -95,7 +95,9 @@ public class OrderController {
         Account account = (Account) session.getAttribute("account");
         Cart cart =(Cart) session.getAttribute("cart");
   /*      boolean authenticated= (boolean) model.getAttribute("authenticated");*/
+
         clear();
+        model.addAttribute("order",order);
         if (account == null ) {//先登录
             String msg = "请先登录";
             model.addAttribute("msg", msg);
@@ -109,6 +111,28 @@ public class OrderController {
             return "common/error";
         }
     }
+    //确认订单
+    @PostMapping("confirmOrder")
+    public String  confirmOrder(Model model,HttpSession session)
+    {
+
+        setConfirmed(true);
+        model.addAttribute("order",order);
+        if (getOrder() != null) {//确认订单
+
+            orderService.insertOrder(order);
+
+            Cart cart = (Cart) session.getAttribute("cart");
+            session.setAttribute("cart", null);
+            String msg = "您的订单已经提交";
+            model.addAttribute("msg", msg);
+
+
+
+            return "order/ViewOrder";//转到查看刚刚完成的订单
+        }
+        else return "common/error";
+    }
     //新订单表newOrderForm的continue按钮，注意是post方法，要从从前端传入表单值
     @PostMapping("newOrder")
     public String newOrder(Model model,HttpSession session) {
@@ -118,18 +142,8 @@ public class OrderController {
             return "order/ShippingForm";//如果需要邮寄的话要写填邮寄地址什么的
         } else if (!isConfirmed()) {
             return "order/ConfirmOrder";//如果没有确认转到确认订单进行确认
-        } else if (getOrder() != null) {//确认订单
-
-            orderService.insertOrder(order);
-
-            Cart cart =(Cart)session.getAttribute("cart") ;
-            model.addAttribute("cart",null);
-            String msg="您的订单已经提交";
-            model.addAttribute("msg",msg);
-
-
-            return "order/ViewOrder";//转到查看刚刚完成的订单
-        } else {
+        }
+        else {
             String msg="错误！";
             model.addAttribute("msg",msg);
             return "common/error";
