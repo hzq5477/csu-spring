@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="StyleSheet" href="../css/jpetstore.css" type="text/css" media="screen"/>
+</head>
+
+<body>
+
+<header th:replace="common/top"></header>
+<div id="Content">
+
+    <div id="Catalog">
+        <form action="/order/newOrderForm" method="get" th:object="${order}">
+            <table>
+                <tr>
+                    <th colspan="2">Payment Details</th>
+                </tr>
+                <tr>
+                    <td>Card Type:</td>
+                    <td>
+                        <select name="order.cardType">
+                            <option selected="selected" value="Visa">Visa</option>
+                            <option value="MasterCard">MasterCard</option>
+                            <option value="American Express">American Express</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Card Number:</td>
+                    <td><input  type="text" th:value="${creditCard}"> * Use a fake
+                        number!
+                    </td>
+                </tr>
+                <tr>
+                    <td>Expiry Date (MM/YYYY):</td>
+                    <td><input  type="text" th:value="${expiryDate}"></td>
+                </tr>
+                <tr>
+                    <th colspan="2">Billing Address</th>
+                </tr>
+
+                <tr>
+                    <td>First name:</td>
+                    <td><input type="text" th:value="${billToFirstName}"></td>
+                </tr>
+                <tr>
+                    <td>Last name:</td>
+                    <td><input type="text" th:value="${billToLastName}"></td>
+                </tr>
+                <tr>
+                    <td>Address 1:</td>
+                    <td><input type="text" th:value="${billAddress1}"></td>
+                </tr>
+                <tr>
+                    <td>Address 2:</td>
+                    <td><input type="text" th:value="${billAddress2}"></td>
+                </tr>
+                <tr>
+                    <td>City:</td>
+                    <td><input type="text" th:value="${billCity}"></td>
+                </tr>
+                <tr>
+                    <td>State:</td>
+                    <td><input type="text" th:value="${billState}"></td>
+                </tr>
+                <tr>
+                    <td>Zip:</td>
+                    <td><input type="text" th:value="${billZip}"></td>
+                </tr>
+                <tr>
+                    <td>Country:</td>
+                    <!-- TODO 国家显示有问题-->
+                    <td><input type="text" th:value="${billCountry}"></td>
+                </tr>
+                <tr>
+
+                <tr>
+                    <td colspan=2><input name="shippingAddressRequired" type="checkbox"  />
+                        Ship to different address...</td>
+                </tr>
+
+            </table>
+            <input name="newOrder" value="Continue" type="submit">
+        </form>
+    </div>
+
+</div>
+
+<footer th:replace="common/bottom"></footer>
+
+</body>
+</html>

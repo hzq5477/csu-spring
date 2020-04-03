@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="StyleSheet" href="../css/jpetstore.css" type="text/css" media="screen"/>
+</head>
+
+<body>
+
+<header th:replace="common/top"></header>
+<div id="Content">
+
+    <div id="Catalog">
+        <form action="/order/newOrder" method="post" th:object="${order}">
+
+            <table>
+                <tr>
+                    <th colspan=2>Shipping Address</th>
+                </tr>
+
+                <tr>
+                    <td>First name:</td>
+                    <td><input type="text" th:value="${billToFirstName}"></td>
+                </tr>
+                <tr>
+                    <td>Last name:</td>
+                    <td><input type="text" th:value="${billToLastName}"></td>
+                </tr>
+                <tr>
+                    <td>Address 1:</td>
+                    <td><input type="text" th:value="${billAddress1}"></td>
+                </tr>
+                <tr>
+                    <td>Address 2:</td>
+                    <td><input type="text" th:value="${billAddress2}"></td>
+                </tr>
+                <tr>
+                    <td>City:</td>
+                    <td><input type="text" th:value="${billCity}"></td>
+                </tr>
+                <tr>
+                    <td>State:</td>
+                    <td><input type="text" th:value="${billState}"></td>
+                </tr>
+                <tr>
+                    <td>Zip:</td>
+                    <td><input type="text" th:value="${billZip}"></td>
+                </tr>
+                <tr>
+                    <td>Country:</td>
+                    <td><input type="text" th:value="${billCountry}"></td>
+                </tr>
+
+
+            </table>
+
+            <input type="submit" name="newOrder" value="Continue" />
+
+        </form>
+    </div>
+
+</div>
+
+<footer th:replace="common/bottom"></footer>
+
+</body>
+</html>
