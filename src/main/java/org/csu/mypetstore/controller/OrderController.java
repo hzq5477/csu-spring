@@ -2,6 +2,7 @@ package org.csu.mypetstore.controller;
 
 import org.csu.mypetstore.domain.Account;
 import org.csu.mypetstore.domain.Cart;
+import org.csu.mypetstore.domain.CartItem;
 import org.csu.mypetstore.domain.Order;
 import org.csu.mypetstore.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,7 @@ import javax.servlet.http.HttpSession;
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
 //@author：hzq
 //@note：
@@ -94,7 +96,7 @@ public class OrderController {
     public String newOrderForm(Model model,HttpSession session) {
         Account account = (Account) session.getAttribute("account");
         Cart cart =(Cart) session.getAttribute("cart");
-  /*      boolean authenticated= (boolean) model.getAttribute("authenticated");*/
+        /*      boolean authenticated= (boolean) model.getAttribute("authenticated");*/
 
         clear();
         model.addAttribute("order",order);
@@ -110,7 +112,9 @@ public class OrderController {
             model.addAttribute("msg", msg);
             return "common/error";
         }
+
     }
+
     //确认订单
     @PostMapping("confirmOrder")
     public String  confirmOrder(Model model,HttpSession session)
