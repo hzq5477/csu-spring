@@ -8,7 +8,7 @@ import java.util.Map;
 
 @Repository
 public interface ItemMapper {
-
+    //更新库存，订单完成时
     void updateInventoryQuantity(Map<String, Object> param);
 
     int getInventoryQuantity(String itemId);

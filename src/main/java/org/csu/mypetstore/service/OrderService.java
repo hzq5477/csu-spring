@@ -37,7 +37,7 @@ public class OrderService {
             Map<String, Object> param = new HashMap<String, Object>(2);
             param.put("itemId", itemId);
             param.put("increment", increment);
-            itemMapper.updateInventoryQuantity(param);
+            itemMapper.updateInventoryQuantity(param);//更新库存
         }
 
         orderMapper.insertOrder(order);

@@ -7,6 +7,7 @@
 </head>
 <body>
 <header th:replace="common/top"></header>
+<div id="Content">
     <div id="Catalog">
         <form action="/account/signon" method="post">
             <p>Please enter your username and password.</p>
@@ -22,6 +23,7 @@
         Need a user name and password?
         <a href="/account/newAccountForm">Register Now!</a>
     </div>
+</div>
 <footer th:replace="common/bottom"></footer>
 <script type="text/javascript" src="../js/verificationCode.js" charset = "UTF-8"></script>
 </body>

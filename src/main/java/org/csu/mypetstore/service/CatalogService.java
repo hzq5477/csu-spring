@@ -48,7 +48,7 @@ public class CatalogService {
     public Item getItem(String itemId){
         return itemMapper.getItem(itemId);
     }
-
+    //是否在库存中
     public boolean isItemInStock(String itemId){
         return itemMapper.getInventoryQuantity(itemId) > 0;
     }

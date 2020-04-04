@@ -42,6 +42,7 @@ public class CartController {
         if(cart.containsItemId(workingItemId)){
             cart.incrementQuantityByItemId(workingItemId);
         }else{
+            //加入前判断是否在库存内
             boolean isInStock = catalogService.isItemInStock(workingItemId);
 //            Item item = catalogService.getItem(workingItemId);
             cart.addItem(item,isInStock);
