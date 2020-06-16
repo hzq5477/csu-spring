@@ -35,4 +35,15 @@ public class MhomeController {
             return "M_home/home";
         }
     }
+
+    @GetMapping("personal")
+    public String personal(){
+        return "M_info/info";
+    }
+
+    @GetMapping("editPassword")
+    public String editPassword(){
+        return "M_info/password";
+    }
+
 }
