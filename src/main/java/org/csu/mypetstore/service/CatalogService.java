@@ -44,7 +44,10 @@ public class CatalogService {
     public List<Item> getItemListByProduct(String productId){
         return itemMapper.getItemListByProduct(productId);
     }
-
+    //所有的item
+    public List<Item> getItemList(){
+        return itemMapper.getItemList();
+    }
     public Item getItem(String itemId){
         return itemMapper.getItem(itemId);
     }
