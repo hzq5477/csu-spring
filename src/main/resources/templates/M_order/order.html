@@ -36,44 +36,51 @@
                                 <div class="layui-input-inline layui-show-xs-block">
                                     <input class="layui-input" placeholder="收货人" name="end" id="end"></div>
                                 <div class="layui-input-inline layui-show-xs-block">
+                                    <input class="layui-input" placeholder="电话号码" name="end" id="end"></div>
+                                <div class="layui-input-inline layui-show-xs-block">
                                     <input class="layui-input" placeholder="订单状态" name="end" id="end"></div>
                                 <div class="layui-input-inline layui-show-xs-block">
-                                <select name="contrller">
-                                        <option>支付方式</option>
-                                        <option>支付宝</option>
-                                        <option>微信</option>
-                                        <option>货到付款</option></select>
-                                </div>
-                                <div class="layui-input-inline layui-show-xs-block">
-                                    <select name="contrller">
-                                        <option value="">订单状态</option>
-                                        <option value="0">待确认</option>
-                                        <option value="1">已确认</option>
-                                        <option value="2">已收货</option>
-                                        <option value="3">已取消</option>
-                                        <option value="4">已完成</option>
-                                        <option value="5">已作废</option></select>
-                                </div>
-                                <div class="layui-input-inline layui-show-xs-block">
-                                    <input type="text" name="username" placeholder="请输入订单号" autocomplete="off" class="layui-input"></div>
+                                    <input type="text" name="username" placeholder="订单编号" autocomplete="off" class="layui-input"></div>
+
+<!--                                <div class="layui-input-inline layui-show-xs-block">-->
+<!--                                <select name="contrller">-->
+<!--                                        <option>支付方式</option>-->
+<!--                                        <option>支付宝</option>-->
+<!--                                        <option>微信</option>-->
+<!--                                        <option>货到付款</option></select>-->
+<!--                                </div>-->
+<!--                                <div class="layui-input-inline layui-show-xs-block">-->
+<!--                                    <select name="contrller">-->
+<!--                                        <option value="">订单状态</option>-->
+<!--                                        <option value="0">待确认</option>-->
+<!--                                        <option value="1">已确认</option>-->
+<!--                                        <option value="2">已收货</option>-->
+<!--                                        <option value="3">已取消</option>-->
+<!--                                        <option value="4">已完成</option>-->
+<!--                                        <option value="5">已作废</option></select>-->
+<!--                                </div>-->
+
                                 <div class="layui-input-inline layui-show-xs-block">
                                     <button class="layui-btn" lay-submit="" lay-filter="sreach">
                                         <i class="layui-icon">&#xe615;</i></button>
+<!--                                </div>-->
+<!--                                <div class="layui-card-header">-->
+                                    <button class="layui-btn" onclick="xadmin.open('新增订单','newOrder.html')">
+                                        <i class="layui-icon"></i>添加</button>
+                                    <button class="layui-btn layui-btn-danger" onclick="delAll()">
+                                        <i class="layui-icon"></i>删除</button>
                                 </div>
                             </form>
-                        </div>
-                        <div class="layui-card-header">
-                            <button class="layui-btn layui-btn-danger" onclick="delAll()">
-                                <i class="layui-icon"></i>删除</button>
-                            <button class="layui-btn" onclick="xadmin.open('新增订单','newOrder.html')">
-                                <i class="layui-icon"></i>添加</button></div>
+                            <br>
+
+
                         <div class="layui-card-body ">
                             <table class="layui-table layui-form">
                                 <thead>
                                     <tr>
-                                        <th>
-                                            <input type="checkbox" name="" lay-skin="primary">
-                                        </th>
+<!--                                        <th>-->
+<!--                                            <input type="checkbox" name="" lay-skin="primary">-->
+<!--                                        </th>-->
                                         <th>订单编号</th>
                                         <th>收货人</th>
                                         <th>电话号码</th>
@@ -86,8 +93,8 @@
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td>
-                                            <input type="checkbox" name="" lay-skin="primary"></td>
+<!--                                        <td>-->
+<!--                                            <input type="checkbox" name="" lay-skin="primary"></td>-->
                                         <td>2020091718222983</td>
                                         <td>老王</td>
                                         <td>18925139194</td>
