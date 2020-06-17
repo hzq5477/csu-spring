@@ -1,6 +1,6 @@
 <!--后台管理系统的index.html-->
 <!DOCTYPE html>
-<html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
 <title>Login</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -23,6 +23,9 @@
 						<span><label>密码</label></span>
 					    <span><input type="password" class="password" name="password"></span>
 					 </div>
+					<div>
+						<center><span th:text="${msg}" style="font-family:verdana;font-size:80%"></span></center>
+					</div>
 					 <div class="sign">
 						<input type="submit" value="登录" class="submit" />
 					 </div>

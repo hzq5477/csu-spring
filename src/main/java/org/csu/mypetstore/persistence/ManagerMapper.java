@@ -7,4 +7,9 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface ManagerMapper {
     Manager getManagerByUsernameAndPassword(Manager manager);
+
+    Manager getManagerByPassword(String password);
+
+    void updatePassword(Manager manager);
+
 }

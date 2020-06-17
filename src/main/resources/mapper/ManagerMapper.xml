@@ -11,4 +11,17 @@
         WHERE USERNAME= #{username}
             AND PASSWORD = #{password}
     </select>
+
+    <select id="getManagerByPassword" parameterType="String" resultType="Manager">
+        SELECT
+            PASSWORD
+        FROM MANAGER
+        WHERE PASSWORD = #{password}
+    </select>
+
+    <update id="updatePassword" parameterType="Manager">
+        UPDATE manager SET
+            password = #{password}
+        WHERE username = 'admin'
+    </update>
 </mapper>

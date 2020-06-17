@@ -1,7 +1,6 @@
 package org.csu.mypetstore.controller;
 
 import org.csu.mypetstore.domain.Manager;
-
 import org.csu.mypetstore.service.ManagerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -9,9 +8,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("/Mhome/")
+@SessionAttributes({"manager"})
 public class MhomeController {
     @Autowired
     private ManagerService managerService;
@@ -36,18 +37,42 @@ public class MhomeController {
         }
     }
 
+    //个人信息
     @GetMapping("personal")
     public String personal(){
         return "M_info/info";
     }
 
-    @GetMapping("editPassword")
-    public String editPassword(){
+    //账号管理
+    @GetMapping("editPasswordForm")
+    public String editPasswordForm(){
         return "M_info/password";
     }
 
+    //修改个人信息
     @GetMapping("editInfo")
     public String editInfo(){
         return "M_info/newInfo";
+    }
+
+    //修改密码
+    @PostMapping("editPassword")
+    public String editPassword(Manager manager,String repeatedPassword, Model model){
+        if (manager.getPassword() == null || manager.getPassword().length() == 0 || repeatedPassword == null || repeatedPassword.length() == 0) {
+            String msg = "密码不能为空！";
+            model.addAttribute("msg", msg);
+            return "M_info/password";
+        }else if (!manager.getPassword().equals(repeatedPassword)) {
+            String msg = "两次密码不一致！";
+            model.addAttribute("msg", msg);
+            return "M_info/password";
+        }else {
+            managerService.updatePassword(manager);
+            manager=managerService.getManager(manager.getPassword());
+            model.addAttribute("manager",manager);
+            String msg = "修改成功！";
+            model.addAttribute("msg", msg);
+            return "redirect:/Mhome/login";
+        }
     }
 }
