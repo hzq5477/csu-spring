@@ -46,4 +46,8 @@ public class MhomeController {
         return "M_info/password";
     }
 
+    @GetMapping("editInfo")
+    public String editInfo(){
+        return "M_info/newInfo";
+    }
 }
