@@ -75,4 +75,9 @@ public class MhomeController {
             return "redirect:/Mhome/login";
         }
     }
+
+    @GetMapping("windows")
+    public String windows(){
+        return "M_home/windows";
+    }
 }
