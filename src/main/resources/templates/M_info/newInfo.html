@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>修改信息</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Type" content="text/html" />
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="../css/LoginStyle.css" rel='stylesheet' type='text/css' />
 </head>
@@ -11,26 +12,29 @@
     <div class="login">
         <h1>修改信息</h1>
         <div class="inset">
-            <form action="info.html">
+            <form action="/Mhome/editInfo" method="post" name="manager">
                 <div>
                     <span><label>用户名</label></span>
-                    <span><input type="text" class="textbox" ></span>
+                    <span><input type="text" class="textbox" name="username"></span>
                 </div>
                 <div>
-                    <span><label>生日 </label><input type="date" class="password"></span>
+                    <span><label>生日 </label><input type="date" class="password" name="birthday" placeholder="xxxx-xx-xx"></span>
                 </div>
                 <br>
                 <span><label>性别 ：</label>
-                        <input type="radio" name="sex" value="man" class="textbox" > Man
-                        <input type="radio" name="sex" value="woman" class="textbox"> Woman
+                        <input type="radio" name="sex" value="男" class="textbox"> 男
+                        <input type="radio" name="sex" value="女" class="textbox"> 女
                 </span>
                 <br>
                 <div>
-                    <span><label>职务 ：</label>
-                        <input type="checkbox" class="password">老板
-                        <input type="checkbox" class="password">管理员
-                        <input type="checkbox" class="password">职员
+                    <span><label>职务:</label>
+                        <input type="checkbox" class="password" name="duty" value="经理">经理
+                        <input type="checkbox" class="password" name="duty" value="管理员">管理员
+                        <input type="checkbox" class="password" name="duty" value="职员">职员
                     </span>
+                </div>
+                <div>
+                    <center><span th:text="${msg}" style="font-family:verdana;font-size:80%"></span></center>
                 </div>
                 <br>
                 <div class="sign">
@@ -43,6 +47,6 @@
 
 <div class="copy-right">
     <p>JPetStore Management System 2020</p>
-
+</div>
 </body>
 </html>

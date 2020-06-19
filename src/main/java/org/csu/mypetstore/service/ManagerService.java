@@ -21,9 +21,17 @@ public class ManagerService {
         return  managerMapper.getManagerByUsernameAndPassword(manager);
     }
 
+    public Manager getInfo(String username){
+        return managerMapper.getInfoByUsername(username);
+    }
+
     public void updatePassword(Manager manager){
         if(manager.getPassword() != null && manager.getPassword().length() > 0){
             managerMapper.updatePassword(manager);
         }
+    }
+
+    public void updateInfo(String username,String birthday,String sex,String duty){
+        managerMapper.updateInfo(username,birthday,sex,duty);
     }
 }

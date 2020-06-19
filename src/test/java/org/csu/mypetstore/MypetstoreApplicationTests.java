@@ -43,4 +43,13 @@ class MypetstoreApplicationTests {
         System.out.println(manager.getPassword());
     }
 
+//    @Test
+//    void test1(){
+//        Manager manager=new Manager();
+//        manager.setDuty("老板");
+//        manager.setSex("女");
+//        manager.setBirthday("2000-06-18");
+//        manager.setUsername("wjl");
+//        managerService.updateInfo(username,birthday,sex,duty);
+//    }
 }

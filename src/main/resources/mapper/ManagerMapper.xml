@@ -22,6 +22,22 @@
     <update id="updatePassword" parameterType="Manager">
         UPDATE manager SET
             password = #{password}
-        WHERE username = 'admin'
+    </update>
+
+    <select id="getInfoByUsername" parameterType="String" resultType="Manager">
+        SELECT
+            USERNAME,
+            BIRTHDAY,
+            SEX,
+            DUTY
+        FROM MANAGER
+    </select>
+
+    <update id="updateInfo" parameterType="String">
+        UPDATE manager SET
+            username = #{username},
+            birthday = #{birthday},
+            sex = #{sex},
+            duty = #{duty}
     </update>
 </mapper>

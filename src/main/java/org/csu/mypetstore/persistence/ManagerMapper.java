@@ -10,6 +10,9 @@ public interface ManagerMapper {
 
     Manager getManagerByPassword(String password);
 
+    Manager getInfoByUsername(String username);
+
     void updatePassword(Manager manager);
 
+    void updateInfo(String username,String birthday,String sex,String duty);
 }
