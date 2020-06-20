@@ -31,7 +31,6 @@
                     <table class="layui-table layui-form">
                         <thead>
                         <tr>
-                            <th>序号</th>
                             <th>商品编号</th>
                             <th>商品名称</th>
                             <th>商品品类</th>
@@ -41,12 +40,11 @@
                         </thead>
                         <tbody>
 
-                        <tr th:each="item:${itemList}">
+                        <tr th:each="item:${pages.list}">
                             <td><a th:href="'/catalog/viewItem?itemId='+${item.itemId}" th:text="${item.itemId}" >Item ID</a></td>
-                            <td th:text="${item.product.productId}">Product ID</td>
                             <td th:text="${item.product.name}">  name </td>
                             <td th:text="${item.product.categoryId}">category</td>
-                            <td th:text="${item.supplierId}">supplierId</td>
+                            <td th:text="${item.quantity}">quantity</td>
                             <td th:text="${item.status}">当前状态</td>
 
                             <td class="td-manage">
@@ -63,10 +61,9 @@
                 <div class="layui-card-body ">
                     <div class="page">
                         <div>
-                            <a class="prev" href="">&lt;&lt;</a>
-                            <span class="current">1</span>
-                            <!--                                    <a class="num" href="">2</a>-->
-                            <a class="next" href="">&gt;&gt;</a></div>
+                            <a th:unless="${pages.isFirstPage}" class="prev" th:href="@{/M_stock/rack(start=${pages.hasPreviousPage}?${pages.prePage}:1)}">&lt;&lt;</a>
+                            <span class="current" th:text="${pages.PageNum}">1</span>
+                            <a   th:unless="${pages.isLastPage}" class="next" th:href="@{/M_stock/rack(start=${pages.hasNextPage}?${pages.nextPage}:${pages.pages})}">&gt;&gt;</a></div>
                     </div>
                 </div>
             </div>

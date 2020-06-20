@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html class="x-admin-sm">
-    
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
     <head>
         <meta charset="UTF-8">
         <title>订单管理</title>
         <meta name="renderer" content="webkit">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <meta name="viewport" content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi" />
-        <link rel="stylesheet" href="../../static/css/font.css">
-        <link rel="stylesheet" href="../../static/css/xadmin.css">
-        <script src="../../static/lib/layui/layui.js" charset="utf-8"></script>
-        <script type="text/javascript" src="../../static/js/xadmin.js"></script>
+        <link rel="stylesheet" href="../css/font.css">
+        <link rel="stylesheet" href="../css/xadmin.css">
+        <script src="../static/lib/layui/layui.js" charset="utf-8"></script>
+        <script type="text/javascript" src="../static/js/xadmin.js"></script>
     </head>
     
     <body>
@@ -42,23 +42,6 @@
                                 <div class="layui-input-inline layui-show-xs-block">
                                     <input type="text" name="username" placeholder="订单编号" autocomplete="off" class="layui-input"></div>
 
-<!--                                <div class="layui-input-inline layui-show-xs-block">-->
-<!--                                <select name="contrller">-->
-<!--                                        <option>支付方式</option>-->
-<!--                                        <option>支付宝</option>-->
-<!--                                        <option>微信</option>-->
-<!--                                        <option>货到付款</option></select>-->
-<!--                                </div>-->
-<!--                                <div class="layui-input-inline layui-show-xs-block">-->
-<!--                                    <select name="contrller">-->
-<!--                                        <option value="">订单状态</option>-->
-<!--                                        <option value="0">待确认</option>-->
-<!--                                        <option value="1">已确认</option>-->
-<!--                                        <option value="2">已收货</option>-->
-<!--                                        <option value="3">已取消</option>-->
-<!--                                        <option value="4">已完成</option>-->
-<!--                                        <option value="5">已作废</option></select>-->
-<!--                                </div>-->
 
                                 <div class="layui-input-inline layui-show-xs-block">
                                     <button class="layui-btn" lay-submit="" lay-filter="sreach">
@@ -81,32 +64,45 @@
 <!--                                        <th>-->
 <!--                                            <input type="checkbox" name="" lay-skin="primary">-->
 <!--                                        </th>-->
-                                        <th>订单编号</th>
-                                        <th>收货人</th>
-                                        <th>电话号码</th>
-                                        <th>实付金额</th>
+                                        <th>订单ID</th>
+                                        <th>用户ID</th>
+                                        <th>创建日期</th>
+                                        <th>总额</th>
                                         <th>订单状态</th>
-                                        <th>支付方式</th>
-                                        <th>配送方式</th>
-                                        <th>下单时间</th>
-                                        <th>操作</th></tr>
+                                        <th>操作</th>
                                 </thead>
                                 <tbody>
-                                    <tr>
+                                    <tr th:each="order:${pages.list}">
 <!--                                        <td>-->
 <!--                                            <input type="checkbox" name="" lay-skin="primary"></td>-->
-                                        <td>2020091718222983</td>
-                                        <td>老王</td>
-                                        <td>18925139194</td>
-                                        <td>7854.10</td>
-                                        <td>待确认</td>
-                                        <td>支付宝</td>
-                                        <td>顺丰速递</td>
-                                        <td>2017-08-17 18:22</td>
+                                        <td id="orderId" th:text="${order.orderId}">
+                                        </td>
+                                        <td th:text="${order.username}">
+                                        </td>
+                                        <td th:text="${#dates.format(order.orderDate, 'yyyy/MM/dd hh:mm:ss')}">
+                                        </td>
+                                        <td th:text="'$'+${#numbers.formatDecimal(order.totalPrice, 1,2)}">
+                                        </td>
+                                        <td th:text="${order.status}">
+                                        </td>
+   <!--                                     <td>
+
+                                            <a class="btn btn-success" th:href="@{/system/orderEdit(orderID=${order.orderId})}">
+                                                <i class="fa fa-edit"></i>编辑</a>
+                                            <a th:href="@{/system/orderRemove(orderID=${order.orderId})}" class="btn btn-danger "
+                                               data-toggle="modal" data-target="#DELETE"><i
+                                                    class="fa fa-remove"></i>删除</a>
+                                            <a th:href="@{/system/viewOrderDetail(orderId=${order.orderId})}" class="btn btn-warning"><i
+                                                    class="fa fa-search"></i>详细
+                                            </a>
+                                        </td>-->
+
+                                        </td>
                                         <td class="td-manage">
-                                            <a title="查看" onclick="xadmin.open('编辑','order-view.html')" href="javascript:;">
+                                            <a title="查看" th:href="'/M_order/viewOrderDetail?orderId='+${order.orderId}">
+
                                                 <i class="layui-icon">&#xe63c;</i></a>
-                                            <a title="删除" onclick="member_del(this,'要删除的id')" href="javascript:;">
+                                            <a title="删除"  onclick="Javascript:return confirm('确定要删除吗？');" th:href="'/M_order/orderRemove?orderID='+${order.orderId}">
                                                 <i class="layui-icon">&#xe640;</i></a>
                                         </td>
                                     </tr>

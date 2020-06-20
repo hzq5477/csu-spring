@@ -41,8 +41,11 @@
             ATTR2 AS attribute2,
             ATTR3 AS attribute3,
             ATTR4 AS attribute4,
-            ATTR5 AS attribute5
-        FROM ITEM I, PRODUCT P
+            ATTR5 AS attribute5,
+            QTY AS quantity
+        FROM ITEM I,INVENTORY V, PRODUCT P
+            WHERE P.PRODUCTID = I.PRODUCTID
+        AND I.ITEMID = V.ITEMID
 
     </select>
 
@@ -81,4 +84,9 @@
         WHERE ITEMID = #{itemId}
     </update>
 
+    <update id="updateStock" parameterType="map">
+        UPDATE INVENTORY SET
+            QTY = #{stock}
+        WHERE ITEMID = #{itemId}
+    </update>
 </mapper>

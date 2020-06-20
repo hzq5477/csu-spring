@@ -1,27 +1,25 @@
 <!DOCTYPE html>
-<html class="x-admin-sm">
-
+<html class="x-admin-sm" xmlns="http://www.w3.org/1999/html">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>新增订单</title>
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi" />
-    <link rel="stylesheet" href="../../static/css/font.css">
-    <link rel="stylesheet" href="../../static/css/xadmin.css">
-    <script src="../../static/lib/layui/layui.js" charset="utf-8"></script>
-    <script type="text/javascript" src="../../static/js/xadmin.js"></script>
+    <link rel="stylesheet" href="../css/font.css">
+    <link rel="stylesheet" href="../css/xadmin.css">
+    <script src="../static/lib/layui/layui.js" charset="utf-8"></script>
+    <script type="text/javascript" src="../static/js/xadmin.js"></script>
 </head>
 
 <body>
+<form action="/M_stock/changeItemStock" method="post">
 
-                <div class="layui-card-body ">
                     <table class="layui-table layui-form">
+                        <p th:if="${msg!=null}" th:text="${msg}"></p>
                         <thead>
                         <tr>
-                            <th>
-                                <input type="checkbox" name="" lay-skin="primary">
-                            </th>
                             <th>商品编号</th>
                             <th>商品名称</th>
                             <th>商品品类</th>
@@ -29,20 +27,19 @@
                         </thead>
                         <tbody>
                         <tr>
-                            <td>
-                                <input type="checkbox" name="" lay-skin="primary"></td>
-                            <td><input></td>
-                            <td><input></td>
-                            <td><input></td>
-                            <td><input></td>
+
+                            <td th:text="${Item.itemId}">Product ID</td>
+                            <td th:text="${Item.product.name}">  name </td>
+                            <td th:text="${Item.product.categoryId}">category</td>
+                            <td><input th:placeholder="${Item.quantity}" name="newStock"></td>
                         </tr>
                         </tbody>
                     </table>
                 </div>
-                <div class="layui-card-header">
-                    <button class="layui-btn" >
-                        <i class="layui-icon"></i>确认添加</button></div>
-                <div class="layui-card-body ">
+                <div >
+
+                        <input type="submit" value="确认修改" class="layui-btn" /></div>
+
+    </form>
 </body>
 
-</html>

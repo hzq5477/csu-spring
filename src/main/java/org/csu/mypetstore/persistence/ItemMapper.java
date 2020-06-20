@@ -11,6 +11,8 @@ public interface ItemMapper {
     //更新库存，订单完成时
     void updateInventoryQuantity(Map<String, Object> param);
 
+    void updateStock(Map<String, Object> param);
+
     int getInventoryQuantity(String itemId);
 
     List<Item> getItemListByProduct(String productId);

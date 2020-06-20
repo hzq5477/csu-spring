@@ -59,7 +59,7 @@ public class StockController {
     public  String changeItemStock(HttpSession session, String newStock,Model model){
         //设定库存不能小于0
         if (Integer.parseInt(newStock)<0){
-            String msg = "Invalid username or password.  Signon failed.";
+            String msg = "Invalid newStock.  change failed.";
             model.addAttribute("msg", msg);
             return "/M_stock/addStock";
         }

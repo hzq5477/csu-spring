@@ -67,6 +67,10 @@ public class OrderService {
     public List<Order> getOrdersByUsername(String username) {
         return orderMapper.getOrdersByUsername(username);
     }
+    //全部订单
+    public List<Order> getOrders() {
+        return orderMapper.getOrders();
+    }
 
     public int getNextId(String name) {
         Sequence sequence = new Sequence(name, -1);
@@ -78,5 +82,12 @@ public class OrderService {
         Sequence parameterObject = new Sequence(name, sequence.getNextId() + 1);
         sequenceMapper.updateSequence(parameterObject);
         return sequence.getNextId();
+    }
+    //删除订单
+    @Transactional
+    public void removeOrder(int orderId) {
+        orderMapper.removeOrder(orderId);
+        orderMapper.removeLineItem(orderId);
+        orderMapper.removeOrderStatus(orderId);
     }
 }
