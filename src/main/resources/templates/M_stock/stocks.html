@@ -35,14 +35,13 @@
                          <div class="layui-input-inline layui-show-xs-block">
                             <button class="layui-btn" lay-submit="" lay-filter="sreach">
                                 <i class="layui-icon">&#xe615;</i></button>
+                             <button class="layui-btn" onclick="xadmin.open('添加新品','addStock.html')">
+                                 <i class="layui-icon"></i>增加新品</button>
+                             <button class="layui-btn layui-btn-danger" onclick="delAll()">
+                                 <i class="layui-icon"></i>删除库存</button>
                         </div>
                     </form>
                 </div>
-                <div class="layui-card-header">
-                    <button class="layui-btn layui-btn-danger" onclick="delAll()">
-                        <i class="layui-icon"></i>删除库存</button>
-                    <button class="layui-btn" onclick="xadmin.open('添加新品','addStock.html')">
-                        <i class="layui-icon"></i>增加新品</button></div>
                 <div class="layui-card-body ">
                     <table class="layui-table layui-form">
                         <thead>
