@@ -32,12 +32,6 @@
                     <form class="layui-form layui-col-space5">
                         <div class="layui-input-inline layui-show-xs-block">
                             <input class="layui-input" placeholder="商品编号"  ></div>
-                        <div class="layui-input-inline layui-show-xs-block">
-                            <input class="layui-input" placeholder="商品名" ></div>
-                        <div class="layui-input-inline layui-show-xs-block">
-                            <input class="layui-input" placeholder="商品品类" ></div>
-                        <div class="layui-input-inline layui-show-xs-block">
-                            <input class="layui-input" placeholder="库存数量" ></div>
                          <div class="layui-input-inline layui-show-xs-block">
                             <button class="layui-btn" lay-submit="" lay-filter="sreach">
                                 <i class="layui-icon">&#xe615;</i></button>
@@ -62,7 +56,7 @@
                         </thead>
                         <tbody>
                         <tr th:each="item:${pages.list}">
-                            <td><a th:href="'/catalog/viewItem?itemId='+${item.itemId}" th:text="${item.itemId}" >Item ID</a></td>
+                            <td><a th:href="'/M_stock/viewItem?itemId='+${item.itemId}" th:text="${item.itemId}" >Item ID</a></td>
                             <td th:text="${item.product.name}">  name </td>
                             <td th:text="${item.product.categoryId}">category</td>
                             <td th:text="${item.quantity}">supplierId</td>

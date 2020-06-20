@@ -144,7 +144,7 @@
 </html>
 <script type="text/javascript">
     // 基于准备好的dom，初始化echarts实例
-    var myChart = echarts.init(document.getElementById('charts'));
+    var myChart = echarts.init(document.getElementById('charts'),"light");
     // 新建productName与nums数组来接受数据
     var Date1 = [];
     var total =[];
@@ -172,8 +172,19 @@
             text: '销售情况'
         },
         tooltip: {},
+        toolbox: {
+            show: true,
+            feature: {
+                mark: { show: true },
+                dataView: { show: true, readOnly: true },
+                magicType: { show: true, type: ['line', 'bar'] },
+
+                restore: { show: false },
+                saveAsImage: { show: true }
+            }
+        },
         legend: {
-            data:['销量']
+            data:['销售额']
         },
         xAxis: {
             data: Date1
@@ -189,7 +200,7 @@
     myChart.setOption(option);
 </script>
 <script>
-    var myChart = echarts.init(document.getElementById('charts2'));
+    var myChart = echarts.init(document.getElementById('charts2'),"light");
 
     var option = {
         title : {
@@ -207,7 +218,7 @@
         },
         series : [
             {
-                name: '销售记录',
+                name: '日销',
                 type: 'pie',
                 radius : '55%',
                 center: ['50%', '60%'],

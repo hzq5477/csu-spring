@@ -68,4 +68,20 @@ public class StockController {
         managerService.updateStock(item,newStock);
         return "redirect:/M_stock/stocks";
     }
+
+    @GetMapping("viewItem")
+    public String viewItem(String itemId, Model model){
+        Item item = catalogService.getItem(itemId);
+        Product product = item.getProduct();
+        processProductDescription(product);
+        model.addAttribute("item",item);
+        model.addAttribute("product",product);
+        return "/M_stock/item";
+    }
+    private void processProductDescription(Product product){
+        String [] temp = product.getDescription().split("\"");
+        product.setDescriptionImage(temp[1]);
+        product.setDescriptionText(temp[2].substring(1));
+    }
+
 }
