@@ -9,6 +9,8 @@
         <link rel="stylesheet" href="../css/font.css">
         <link rel="stylesheet" href="../css/xadmin.css">
         <script src="../lib/layui/layui.js" charset="utf-8"></script>
+        <script type="text/javascript" src="https://cdn.bootcss.com/echarts/4.6.0/echarts.min.js" ></script>
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.js" ></script>
         <script type="text/javascript" src="js/xadmin.js"></script>
     </head>
     <body>
@@ -39,14 +41,14 @@
                                     <a href="javascript:;" class="x-admin-backlog-body">
                                         <h3>会员数</h3>
                                         <p>
-                                            <cite>1436</cite></p>
+                                            <cite>32</cite></p>
                                     </a>
                                 </li>
                                 <li class="layui-col-md2 layui-col-xs6">
                                     <a href="javascript:;" class="x-admin-backlog-body">
                                         <h3>当日销量</h3>
                                         <p>
-                                            <cite>2</cite></p>
+                                            <cite>0</cite></p>
                                     </a>
                                 </li>
                                 <li class="layui-col-md2 layui-col-xs6">
@@ -71,6 +73,10 @@
                                     </a>
                                 </li>
                             </ul>
+                        </div>
+                        <div>
+                        <div id="charts" style="width: 600px;height:400px; display: inline-block"></div>
+                        <div id="charts2" style="width: 600px;height:400px;display: inline-block"></div>
                         </div>
                     </div>
                 </div>
@@ -136,3 +142,107 @@
         </div>
     </body>
 </html>
+<script type="text/javascript">
+    // 基于准备好的dom，初始化echarts实例
+    var myChart = echarts.init(document.getElementById('charts'));
+    // 新建productName与nums数组来接受数据
+    var Date1 = [];
+    var total =[];
+    // 指定图表的配置项和数据
+    $.ajax({
+        type:"GET",
+        url:"/M_order/getOrderData",
+        dataType:"json",
+        async:false,
+        success:function (result) {
+            for (var i = 0; i < result.length; i++){
+                Date1.push(result[i].orderDate.substring(0, 10));
+                total.push(result[i].totalPrice);
+
+            }
+        },
+        error :function(errorMsg) {
+            alert("获取后台数据失败！");
+        }
+    });
+
+
+    var option = {
+        title: {
+            text: '销售情况'
+        },
+        tooltip: {},
+        legend: {
+            data:['销量']
+        },
+        xAxis: {
+            data: Date1
+        },
+        yAxis: {},
+        series: [{
+            name: '销量',
+            type: 'line',
+            data: total
+        }]
+    };
+    // 使用刚指定的配置项和数据显示图表。
+    myChart.setOption(option);
+</script>
+<script>
+    var myChart = echarts.init(document.getElementById('charts2'));
+
+    var option = {
+        title : {
+            text: '销售情况分布',
+            subtext: '按日分布',
+            x:'center'
+        },
+        tooltip : {
+            trigger: 'item',
+            formatter: "{a} <br/>{b} : {c} ({d}%)"
+        },
+        legend: {
+            orient: 'vertical',
+            left: 'left',
+        },
+        series : [
+            {
+                name: '销售记录',
+                type: 'pie',
+                radius : '55%',
+                center: ['50%', '60%'],
+                data:(function () {
+
+                    var datas = [];
+                    $.ajax({
+                        type:"get",
+                        url:"/M_order/getOrderData",
+                        dataType:"json",
+                        async:false,
+                        success:function (result) {
+
+                            for (var i = 0; i < result.length; i++){
+                                datas.push({
+                                    "value":result[i].totalPrice, "name":result[i].orderDate.substring(0, 10)
+                                })
+                            }
+
+                        }
+                    })
+                    return datas;
+
+                })(),
+                itemStyle: {
+                    emphasis: {
+                        shadowBlur: 10,
+                        shadowOffsetX: 0,
+                        shadowColor: 'rgba(0, 0, 0, 0.5)'
+                    }
+                }
+            }
+        ]
+    };
+    myChart.setOption(option);
+</script>
+
+

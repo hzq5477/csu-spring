@@ -21,4 +21,6 @@ public interface OrderMapper {
     void removeOrder(int orderId);
     void removeLineItem(int orderId);
     void removeOrderStatus(int orderId);
+
+    List<Order> getOrdersByDay();
 }

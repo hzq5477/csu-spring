@@ -71,7 +71,10 @@ public class OrderService {
     public List<Order> getOrders() {
         return orderMapper.getOrders();
     }
-
+    //每个日期销售额总价
+    public List<Order> getOrdersByDay() {
+        return orderMapper.getOrdersByDay();
+    }
     public int getNextId(String name) {
         Sequence sequence = new Sequence(name, -1);
         sequence = (Sequence) sequenceMapper.getSequence(sequence);

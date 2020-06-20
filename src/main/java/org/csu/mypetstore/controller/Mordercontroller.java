@@ -7,10 +7,7 @@ import org.csu.mypetstore.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -46,5 +43,11 @@ public class Mordercontroller {
     public String orderRemove(@RequestParam("orderID") int orderId) {
         orderService.removeOrder(orderId);
         return "redirect:/M_order/order";
+    }
+//给前端echarts传数据
+    @RequestMapping("/getOrderData")
+    @ResponseBody
+    public List<Order> getOrderData(){
+        return orderService.getOrdersByDay();
     }
 }

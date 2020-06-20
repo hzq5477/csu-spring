@@ -139,4 +139,11 @@
     ORDERID = #{value}
   </delete>
 
+  <select id="getOrdersByDay" parameterType="string" resultType="order">
+    SELECT
+      ORDERDATE,
+      sum(TOTALPRICE) as TOTALPRICE
+    FROM ORDERS
+    GROUP BY ORDERDATE
+  </select>
 </mapper>
