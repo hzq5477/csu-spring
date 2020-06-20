@@ -1,20 +1,32 @@
+
 <!DOCTYPE html>
-<html lang="en">
-<<head>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
     <title>MyPetStore</title>
-    <link rel="StyleSheet" href="css/jpetstore.css" type="text/css" media="screen"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="../css/LoginStyle.css" rel='stylesheet' type='text/css' />
 </head>
 
 <body>
-<div id="Content">
-    <h2>Welcome to MyPetStore</h2>
-
-    <p><a href="/catalog/index">Enter the Store</a></p>
-
-    <p><sub>Copyright www.csu.edu.cn </sub></p>
-
+<div class="main">
+    <div class="login">
+        <h1>欢迎来到 MyPetStore</h1>
+        <br>
+        <div class="inset">
+            <div>
+                <a href="/catalog/index" ><img src="images/splash.gif"></a>
+                <br>
+                <br>
+                <h2>Enter the Store</h2>
+            </div>
+        </div>
+    </div>
 </div>
+
+<div class="copy-right">
+    <p><sub>Copyright www.csu.edu.cn </sub></p>
+</div>
+
 </body>
-
-
 </html>

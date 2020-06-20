@@ -6,22 +6,21 @@
     <link rel="StyleSheet" href="../css/jpetstore.css" type="text/css" media="screen"/>
 </head>
 <body>
-    <footer th:fragment="footer">
-        <div id="Footer">
+<footer th:fragment="footer">
+    <div id="Footer">
 
-            <div id="PoweredBy">
-                &nbsp<a href="http://www.csu.edu.cn">Central South University</a>
+        <div id="Banner">
+            <!-- Banner Name -->
+            <!--                <label th:if="(${session.account} != null) and (${session.authenticated})">-->
+            <!--                    <img th:if="${session.account.bannerOption}"-->
+            <!--                         th:src="${#strings.arraySplit(session.account.bannerName,'&quot;')[1]}">-->
+            <!--                </label>-->
+            <div class="copy-right">
+                <p fontsize="100" align="center"><sub>Copyright www.csu.edu.cn </sub></p>
             </div>
-
-            <div id="Banner">
-                <!-- Banner Name -->
-                <label th:if="(${session.account} != null) and (${session.authenticated})">
-                    <img th:if="${session.account.bannerOption}"
-                         th:src="${#strings.arraySplit(session.account.bannerName,'&quot;')[1]}">
-                </label>
-            </div>
-
         </div>
-    </footer>
+
+    </div>
+</footer>
 </body>
 </html>
