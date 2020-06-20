@@ -1,10 +1,9 @@
 body {
-    margin: 0ex 10ex 0ex 10ex;
-    padding: 0ex;
+    width: 100%;
     font-family: helvetica, tahoma, arial, verdana, sans-serif;
     font-size: 2ex;
     color: #333;
-    background-color: #444;
+    background-color: white;
 }
 
 pre {
@@ -106,36 +105,32 @@ a.Button:hover {
 }
 
 #Logo {
-    width: 33%;
-    height: 9ex;
-    margin: 0ex 0ex 0ex 0ex;
+    width: 33.3333%;
     padding: 0ex 0ex 0ex 0ex;
     border-width: 0ex 0ex .3ex 0px;
     border-style: solid;
     border-color: #ccc;
     float: left;
-    background-color: #000;
+    background-color: #009688;
     color: #fff;
     line-height: 9ex;
     voice-family: "\"}\"";
     voice-family: inherit;
-    height: 9ex;
+    height: 9.9ex;
 }
 
 body>#Logo {
-    height: 9ex;
+    height: 9.9ex;
 }
 
 #Menu {
-    width: 33%;
-    height: 9ex;
-    margin: 0ex 0ex 0ex 0ex;
+    width: 33.3333%;
     padding: 0ex 0ex 0ex 0ex;
     border-width: 0ex 0ex .3ex 0px;
     border-style: solid;
     border-color: #ccc;
     float: left;
-    background-color: #000;
+    background-color: #009688;
     color: #eaac00;
     text-decoration: none;
     font-family: helvetica, tahoma, arial, verdana, sans-serif;
@@ -147,45 +142,42 @@ body>#Logo {
 }
 
 #Menu, #Menu a, #Menu a:link, #Menu a:visited, #Menu a:hover {
-    color: #eaac00;
+    color: white;
+    font-size: large;
     text-decoration: none;
     font-family: helvetica, tahoma, arial, verdana, sans-serif;
 }
 
 body>#Menu {
-    height: 9ex;
+    height: 20ex;
 }
 
-{
-}
 
 #Search {
-    width: 33%;
-    height: 9ex;
-    margin: 0ex 0ex 0ex 0ex;
+    width: 465px;
     padding: 0ex 0ex 0ex 0ex;
     border-width: 0ex 0ex .3ex 0px;
     border-style: solid;
     border-color: #ccc;
     float: left;
     text-align: center;
-    background-color: #000;
-    color: #eaac00;
+    background-color: #009688;
+    color: white;
     line-height: 9ex;
     voice-family: "\"}\"";
     voice-family: inherit;
-    height: 9ex;
+    height: 9.9ex;
 }
 
 body>#Search {
-    height: 9ex;
+    height: 9.9ex;
 }
 
 #Search input {
     border-width: .1ex .1ex .1ex .1ex;
     border-style: solid;
     border-color: #aaa;
-    background-color: #666;
+    background-color: white;
     color: #eaac00;
 }
 
@@ -204,12 +196,12 @@ body>#Search {
     border-style: solid;
     border-color: #ccc;
     float: left;
-    background-color: #000;
+    background-color: #009688;
     color: #fff;
     line-height: 9ex;
     voice-family: "\"}\"";
     voice-family: inherit;
-    height: 9ex;
+    height: 15ex;
 }
 
 body>#PoweredBy {
@@ -217,7 +209,7 @@ body>#PoweredBy {
 }
 
 #Banner {
-    width: 69%;
+    width: 99%;
     height: 9ex;
     margin: 0ex 0ex 0ex 0ex;
     padding: 0ex 0ex 0ex 0ex;
@@ -225,12 +217,13 @@ body>#PoweredBy {
     border-style: solid;
     border-color: #ccc;
     float: left;
-    background-color: #000;
+    background-color:#009688;
     color: #fff;
+    font-size: larger;
     line-height: 9ex;
     voice-family: "\"}\"";
     voice-family: inherit;
-    height: 9ex;
+    height: 15ex;
 }
 
 body>#Banner {
